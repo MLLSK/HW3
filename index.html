@@ -93,7 +93,7 @@
     <h2>Yahoo!</h2>
     <h2>登入</h2>
     <p>使用您的 Yahoo奇摩帳號</p>
-    <form action="/submit-your-login-form" method="post">
+    <form id="loginForm" action="/submit-your-login-form" method="post">
         <label>
             <input type="text" name="username" placeholder="使用您的 Yahoo 帳號">
         </label>
@@ -113,5 +113,15 @@
         </div>
     </form>
 </div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        var username = document.querySelector('[name="username"]').value;
+        var password = document.querySelector('[name="password"]').value;
+        if (!username || !password) {
+            alert('請輸入用戶名和密碼');
+            event.preventDefault(); // 阻止表單提交
+        }
+    });
+</script>
 </body>
 </html>
